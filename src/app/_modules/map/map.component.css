@@ -14,16 +14,24 @@
     width: 100%;
 }
 
-form {
+/* form {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+} */
 input {
-    /* width: 50%; */
+    width: 50%;
     display: inline;
 }
 
 nz-select {
     display: block;
+}
+
+button {
+    width: 50%;
+}
+
+nz-button-group {
+    width: 100%;
 }
