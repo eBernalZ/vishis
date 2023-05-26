@@ -12,5 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - See a map of the world with the events in a given year or set of years
 - See a timeline of events in a given year or set of years in a specific country
 
-
 [unreleased]: https://github.com/eBernalZ/vishis/

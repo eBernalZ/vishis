@@ -18,8 +18,6 @@ fs.access(dir, fs.constants.F_OK, (err) => {
         console.log("File written successfully\n");
         if (fs.existsSync(dir + "/" + file)) {
             console.log("File exists\n", path.resolve(dir + "/" + file));
-            const str = fs.readFileSync(dir + "/" + file).toString();
-            console.log("File content: ", str);
         }
     } catch (error) {
         console.error(error);
