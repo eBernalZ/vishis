@@ -7,6 +7,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     FormsModule,
     ReactiveFormsModule,
     NzButtonModule,
-    NzIconModule
+    NzIconModule,
+    TranslocoModule
   ],
   exports: [
     MapComponent

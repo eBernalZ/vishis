@@ -19,10 +19,6 @@
     flex-direction: column;
     width: 100%;
 } */
-input {
-    width: 50%;
-    display: inline;
-}
 
 nz-select {
     display: block;
@@ -35,3 +31,13 @@ button {
 nz-button-group {
     width: 100%;
 }
+
+nz-form-item{
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    padding: 10px;
+}
+
+/* input {
+    width: 100%;
+} */

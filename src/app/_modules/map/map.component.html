@@ -1,34 +1,70 @@
 <div #map></div>
 <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" #searchBar>
-  <input nz-input formControlName="yearFrom" id="yearFrom" placeholder="1823" [(ngModel)]="yearFrom" />
-  <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923" [(ngModel)]="yearTo" />
-  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Lugar" [(ngModel)]="country">
-    <nz-option nzLabel="Siria" nzValue="jack"></nz-option>
-    <nz-option nzLabel="Mexico" nzValue="lucy"></nz-option>
-    <nz-option nzLabel="Alemania" nzValue="tom"></nz-option>
-  </nz-select>
+  <nz-form-item>
+    <nz-form-label>{{'map.years' | transloco}}</nz-form-label>
+    <nz-input-group [nzSize]="'default'">
+      <div nz-row [nzGutter]="0">
+        <div nz-col nzSpan="12">
+          <nz-form-control nzHasFeedback>
+            <input nz-input formControlName="yearFrom" id="yearFrom" placeholder="1823" />
+          </nz-form-control>
+        </div>
+        <div nz-col nzSpan="12">
+          <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="yearToErrorTpl">
+            <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923"/>
+            <ng-template #yearToErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('confirm')">Rango de años invalido</ng-container>
+            </ng-template>
+          </nz-form-control>
+        </div>
+      </div>
+    </nz-input-group>
+  </nz-form-item>
 
-  <nz-select [nzMaxTagCount]="3" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple"
-    nzPlaceHolder="Países involucrados">
-    <nz-option nzLabel="Siria" nzValue="jack"></nz-option>
-    <nz-option nzLabel="Mexico" nzValue="lucy"></nz-option>
-    <nz-option nzLabel="Alemania" nzValue="tom"></nz-option>
-  </nz-select>
-  <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
 
-  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Estatus" [(ngModel)]="country">
-    <nz-option nzLabel="Finalizado" nzValue="jack"></nz-option>
-    <nz-option nzLabel="En curso" nzValue="lucy"></nz-option>
-  </nz-select>
+  <nz-form-item>
+    <nz-form-label>{{'map.place' | transloco}}</nz-form-label>
+    <nz-form-control>
+      <nz-select nzShowSearch formControlName="country" nzAllowClear>
+        <nz-option *ngFor="let country of countries" nzLabel="{{'map.countries.' + country | transloco}}"
+          [nzValue]="country"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
 
-  <nz-button-group>
-    <button nz-button nzType="primary">
-      <span nz-icon nzType="delete"></span>
-      Borrar
-    </button>
-    <button nz-button nzType="primary">
-      <span nz-icon nzType="search"></span>
-      Buscar
-    </button>
-  </nz-button-group>
+  <nz-form-item>
+    <nz-form-label>{{'map.parties' | transloco}}</nz-form-label>
+    <nz-form-control>
+      <nz-select [nzMaxTagCount]="2" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" formControlName="parties">
+        <nz-option *ngFor="let country of countries" nzLabel="{{'map.countries.' + country | transloco}}"
+          [nzValue]="country"></nz-option>
+      </nz-select>
+      <ng-template #tagPlaceHolder let-selectedList>{{ 'map.partiesTemplate' | transloco: {parties: selectedList.length} }}</ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>{{'map.status' | transloco}}</nz-form-label>
+    <nz-form-control>
+      <nz-select nzShowSearch formControlName="status" nzAllowClear>
+        <nz-option *ngFor="let status of statuses" nzLabel="{{'map.' + status | transloco}}"
+          [nzValue]="status"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <nz-button-group>
+        <button type="button" nz-button (click)="reset()">
+          <span nz-icon nzType="delete"></span>
+          {{'map.clear' | transloco}}
+        </button>
+        <button nz-button nzType="primary" disabled="{{searchDisable}}">
+          <span nz-icon nzType="search"></span>
+          {{'map.search' | transloco}}
+        </button>
+      </nz-button-group>
+    </nz-form-control>
+  </nz-form-item>
 </form>

@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // CUSTOM MODULES
 import { MapModule } from './_modules/map/map.module';
+import { TranslocoRootModule } from './transloco-root.module';
 
 registerLocaleData(en);
 @NgModule({
@@ -27,11 +28,10 @@ registerLocaleData(en);
     MapModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TranslocoRootModule
   ],
-  providers: [
-    { provide: NZ_I18N, useValue: en_US }
-  ],
+  providers: [ { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
