@@ -21,6 +21,7 @@
         "finished": "Finalizado",
         "ongoing": "En curso",
         "years": "Año(s)",
+        "invalidRange": "Rango de años inválido",
         "countries": {
             "AF": "Afganistán",
             "AL": "Albania",

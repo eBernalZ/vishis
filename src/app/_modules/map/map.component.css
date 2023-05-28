@@ -26,13 +26,21 @@ nz-button-group {
     width: 100%;
 }
 
-nz-form-item{
+nz-form-item {
     width: 100%;
     margin: 0px 0px 0px 0px;
-    padding: 10px;
+    padding: 5px 10px 5px 10px;
 }
 
 .modal-content {
     text-align: center;
     margin-bottom: 0.5px;
+}
+
+nz-form-label {
+    padding: 0px !important;
+}
+
+form {
+    max-width: 75%;
 }

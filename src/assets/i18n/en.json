@@ -23,6 +23,7 @@
         "finished": "Finished",
         "ongoing": "Ongoing",
         "years": "Year range",
+        "invalidRange": "Invalid year range",
         "countries": {
             "AF": "Afghanistan",
             "AL": "Albania",

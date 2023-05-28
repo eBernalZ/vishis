@@ -13,7 +13,7 @@
           <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="yearToErrorTpl">
             <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923" />
             <ng-template #yearToErrorTpl let-control>
-              <ng-container *ngIf="control.hasError('confirm')">Rango de años invalido</ng-container>
+              <ng-container *ngIf="control.hasError('confirm')">{{'map.invalidRange' | transloco}}</ng-container>
             </ng-template>
           </nz-form-control>
         </div>
@@ -35,7 +35,7 @@
   <nz-form-item>
     <nz-form-label>{{'map.parties' | transloco}}</nz-form-label>
     <nz-form-control>
-      <nz-select [nzMaxTagCount]="2" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" formControlName="parties">
+      <nz-select [nzMaxTagCount]="1" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" formControlName="parties">
         <nz-option *ngFor="let country of countries" nzLabel="{{'map.countries.' + country | transloco}}"
           [nzValue]="country"></nz-option>
       </nz-select>
