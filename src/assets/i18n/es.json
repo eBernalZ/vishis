@@ -1,4 +1,18 @@
 {
+    "languages": {
+        "en": "Inglés",
+        "es": "Español"
+    },
+
+    "settings": {
+        "title": "Configuración",
+        "language": "Idioma",
+        "languageDescription": "Selecciona el idioma de la aplicación",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "coming_soon": "Más opciones próximamente"
+    },
+
     "map": {
         "search": "Buscar",
         "clear": "Limpiar",

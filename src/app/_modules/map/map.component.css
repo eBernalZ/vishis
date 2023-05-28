@@ -14,17 +14,11 @@
     width: 100%;
 }
 
-/* form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-} */
-
 nz-select {
     display: block;
 }
 
-button {
+nz-button-group > button {
     width: 50%;
 }
 
@@ -38,6 +32,7 @@ nz-form-item{
     padding: 10px;
 }
 
-/* input {
-    width: 100%;
-} */
+.modal-content {
+    text-align: center;
+    margin-bottom: 0.5px;
+}

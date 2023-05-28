@@ -1,4 +1,18 @@
 {
+    "languages": {
+        "en": "English",
+        "es": "Spanish"
+    },
+
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "languageDescription": "Select your preferred language",
+        "cancel": "Cancel",
+        "save": "Save",
+        "coming_soon": "More settings coming soon"
+    },
+    
     "map": {
         "search": "Search",
         "clear": "Clear",

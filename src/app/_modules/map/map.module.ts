@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TranslocoModule } from '@ngneat/transloco';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { TranslocoModule } from '@ngneat/transloco';
     ReactiveFormsModule,
     NzButtonModule,
     NzIconModule,
-    TranslocoModule
+    TranslocoModule,
+    NzModalModule,
+    NzRadioModule,
+    NzDividerModule
   ],
   exports: [
     MapComponent

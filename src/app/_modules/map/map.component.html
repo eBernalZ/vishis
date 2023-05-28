@@ -11,7 +11,7 @@
         </div>
         <div nz-col nzSpan="12">
           <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="yearToErrorTpl">
-            <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923"/>
+            <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923" />
             <ng-template #yearToErrorTpl let-control>
               <ng-container *ngIf="control.hasError('confirm')">Rango de años invalido</ng-container>
             </ng-template>
@@ -39,7 +39,8 @@
         <nz-option *ngFor="let country of countries" nzLabel="{{'map.countries.' + country | transloco}}"
           [nzValue]="country"></nz-option>
       </nz-select>
-      <ng-template #tagPlaceHolder let-selectedList>{{ 'map.partiesTemplate' | transloco: {parties: selectedList.length} }}</ng-template>
+      <ng-template #tagPlaceHolder let-selectedList>{{ 'map.partiesTemplate' | transloco: {parties: selectedList.length}
+        }}</ng-template>
     </nz-form-control>
   </nz-form-item>
 
@@ -68,3 +69,24 @@
     </nz-form-control>
   </nz-form-item>
 </form>
+
+<div #settings>
+  <button nz-button [nzType]="'primary'" (click)="openSettings()"><span nz-icon nzType="setting"
+      nzTheme="outline"></span></button>
+  <nz-modal [(nzVisible)]="showSettings" nzTitle="{{'settings.title' | transloco}}" (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()">
+    <div *nzModalContent class="modal-content">
+        <h3>{{'settings.language' | transloco}}</h3>
+        <p>{{'settings.languageDescription' | transloco}}</p>
+        <nz-radio-group [(ngModel)]="locale" nzButtonStyle="solid">
+          <label nz-radio-button nzValue="en">{{'languages.en' | transloco}}</label>
+          <label nz-radio-button nzValue="es">{{'languages.es' | transloco}}</label>
+        </nz-radio-group>
+        <!-- <nz-divider nzText="{{'settings.coming_soon' | transloco}}"></nz-divider> -->
+      </div>
+    <div *nzModalFooter>
+      <button nz-button nzType="default" (click)="handleCancel()">{{'settings.cancel' | transloco}}</button>
+      <button nz-button nzType="primary" (click)="handleOk()">{{'settings.save' | transloco}}</button>
+    </div>
+  </nz-modal>
+</div>
