@@ -18,7 +18,7 @@ nz-select {
     display: block;
 }
 
-nz-button-group > button {
+nz-button-group>button {
     width: 50%;
 }
 
@@ -26,13 +26,13 @@ nz-button-group {
     width: 100%;
 }
 
-nz-form-item {
+.search-form > nz-form-item {
     width: 100%;
     margin: 0px 0px 0px 0px;
     padding: 5px 10px 5px 10px;
 }
 
-.modal-content {
+.settings {
     text-align: center;
     margin-bottom: 0.5px;
 }
@@ -41,6 +41,28 @@ nz-form-label {
     padding: 0px !important;
 }
 
-form {
+.auth > h3 {
+    text-align: center;
+}
+
+.search-form {
     max-width: 75%;
+}
+
+.login-form {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form-margin {
+    margin-bottom: 16px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.login-form-button {
+    width: 100%;
 }

@@ -12,7 +12,19 @@
         "save": "Save",
         "coming_soon": "More settings coming soon"
     },
-    
+    "auth": {
+        "title": "Authentication",
+        "login": "Log in",
+        "logout": "Log out",
+        "signup": "sign up",
+        "usernameEmail": "Username or email",
+        "password": "Password",
+        "usernameError": "Please input your username or email",
+        "passwordError": "Please input your password",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password?",
+        "or": "Or"
+    },
     "map": {
         "search": "Search",
         "clear": "Clear",

@@ -1,16 +1,27 @@
+// ANGULAR MODULES
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapComponent } from './map.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// I18N MODULES
+import { TranslocoModule } from '@ngneat/transloco';
+
+// NG ZORRO MODULES
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { TranslocoModule } from '@ngneat/transloco';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+
+// CUSTOM MODULES
+import { MapRoutingModule } from './map-routing.module';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -18,17 +29,21 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    TranslocoModule,
+    MapRoutingModule,
     NzSelectModule,
     NzInputModule,
     NzFormModule,
     FormsModule,
-    ReactiveFormsModule,
     NzButtonModule,
     NzIconModule,
-    TranslocoModule,
     NzModalModule,
     NzRadioModule,
-    NzDividerModule
+    NzDividerModule,
+    NzDrawerModule,
+    NzCheckboxModule,
+    AuthModule
   ],
   exports: [
     MapComponent

@@ -1,5 +1,6 @@
 <div #map></div>
-<form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" (ngSubmit)="submitForm()" #searchBar>
+<form class="search-form" nz-form [nzLayout]="'vertical'" [formGroup]="searchParams" (ngSubmit)="search()"
+  #searchBar>
   <nz-form-item>
     <nz-form-label>{{'map.years' | transloco}}</nz-form-label>
     <nz-input-group [nzSize]="'default'">
@@ -20,8 +21,6 @@
       </div>
     </nz-input-group>
   </nz-form-item>
-
-
   <nz-form-item>
     <nz-form-label>{{'map.place' | transloco}}</nz-form-label>
     <nz-form-control>
@@ -57,7 +56,7 @@
   <nz-form-item>
     <nz-form-control>
       <nz-button-group>
-        <button type="button" nz-button (click)="reset()">
+        <button type="button" nz-button (click)="resetSearch()">
           <span nz-icon nzType="delete"></span>
           {{'map.clear' | transloco}}
         </button>
@@ -71,22 +70,73 @@
 </form>
 
 <div #settings>
-  <button nz-button [nzType]="'primary'" (click)="openSettings()"><span nz-icon nzType="setting"
-      nzTheme="outline"></span></button>
-  <nz-modal [(nzVisible)]="showSettings" nzTitle="{{'settings.title' | transloco}}" (nzOnCancel)="handleCancel()"
-    (nzOnOk)="handleOk()">
-    <div *nzModalContent class="modal-content">
-        <h3>{{'settings.language' | transloco}}</h3>
-        <p>{{'settings.languageDescription' | transloco}}</p>
-        <nz-radio-group [(ngModel)]="locale" nzButtonStyle="solid">
-          <label nz-radio-button nzValue="en">{{'languages.en' | transloco}}</label>
-          <label nz-radio-button nzValue="es">{{'languages.es' | transloco}}</label>
-        </nz-radio-group>
-        <!-- <nz-divider nzText="{{'settings.coming_soon' | transloco}}"></nz-divider> -->
-      </div>
+  <nz-button-group>
+    <button nz-button [nzType]="'primary'" (click)="openSettings()"><span nz-icon nzType="setting"
+        nzTheme="outline"></span></button>
+    <button nz-button nzType="primary" (click)="openAuth()"><span nz-icon nzType="user"></span></button>
+  </nz-button-group>
+
+  <nz-modal [(nzVisible)]="showSettings" nzTitle="{{'settings.title' | transloco}}" (nzOnCancel)="closeSettings()"
+    (nzOnOk)="saveSettings()">
+    <div *nzModalContent class="settings">
+      <h3>{{'settings.language' | transloco}}</h3>
+      <p>{{'settings.languageDescription' | transloco}}</p>
+      <nz-radio-group [(ngModel)]="locale" nzButtonStyle="solid">
+        <label nz-radio-button nzValue="en">{{'languages.en' | transloco}}</label>
+        <label nz-radio-button nzValue="es">{{'languages.es' | transloco}}</label>
+      </nz-radio-group>
+      <!-- <nz-divider nzText="{{'settings.coming_soon' | transloco}}"></nz-divider> -->
+    </div>
     <div *nzModalFooter>
-      <button nz-button nzType="default" (click)="handleCancel()">{{'settings.cancel' | transloco}}</button>
-      <button nz-button nzType="primary" (click)="handleOk()">{{'settings.save' | transloco}}</button>
+      <button nz-button nzType="default" (click)="closeSettings()">{{'settings.cancel' | transloco}}</button>
+      <button nz-button nzType="primary" (click)="saveSettings()">{{'settings.save' | transloco}}</button>
+    </div>
+  </nz-modal>
+
+  <nz-modal [(nzVisible)]="showAuth" nzTitle="{{'auth.title' | transloco}}" (nzOnCancel)="closeAuth()"
+    (nzOnOk)="closeAuth()">
+    <div *nzModalContent class="auth">
+      <h3>{{'auth.login' | transloco}}</h3>
+      <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="{{'auth.usernameError' | transloco}}">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="username" placeholder="{{'auth.usernameEmail' | transloco}}" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="{{'auth.passwordError' | transloco}}">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="{{'auth.password' | transloco}}" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <div nz-row class="login-form-margin">
+          <div nz-col [nzSpan]="12">
+            <label nz-checkbox formControlName="remember">
+              <span>{{'auth.rememberMe' | transloco}}</span>
+            </label>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <a class="login-form-forgot">{{'auth.forgotPassword' | transloco}}</a>
+          </div>
+        </div>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="loading">{{'auth.login' | transloco}}</button>
+        {{'auth.or' | transloco}}
+        <a routerLink="/auth/signup">{{'auth.signup' | transloco}}</a>
+      </form>
+    </div>
+    <div *nzModalFooter>
     </div>
   </nz-modal>
 </div>
+
+<nz-drawer [nzClosable]="false" [nzVisible]="showDrawer" nzPlacement="right" nzTitle="Basic Drawer"
+  (nzOnClose)="closeDrawer()">
+  <ng-container *nzDrawerContent>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+  </ng-container>
+</nz-drawer>
