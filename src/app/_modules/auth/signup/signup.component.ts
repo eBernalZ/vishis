@@ -26,8 +26,8 @@ export class SignupComponent implements OnInit {
         username: [null, [Validators.required]],
         email: [null, [Validators.email, Validators.required]],
         password: [null, [Validators.required]],
-        checkPassword: [null, [Validators.required, this.confirmationValidator]],
-        agree: [false]
+        password_confirmation: [null, [Validators.required, this.confirmationValidator]],
+        agree: [false, [Validators.requiredTrue]]
       });
     }
 
@@ -60,21 +60,4 @@ export class SignupComponent implements OnInit {
     }
     return {};
   };
-
-  getCaptcha(e: MouseEvent): void {
-    e.preventDefault();
-  }
-
-  emailAsyncValidator = (control: UntypedFormControl) =>
-    new Observable((observer: Observer<ValidationErrors | null>) => {
-      setTimeout(() => {
-        if (control.value === 'JasonWood') {
-          // you have to return `{error: true}` to mark it as an error event
-          observer.next({ error: true, duplicated: true });
-        } else {
-          observer.next(null);
-        }
-        observer.complete();
-      }, 1000);
-    });
 }

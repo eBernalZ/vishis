@@ -42,7 +42,12 @@
         "signupSuccess": "Sign up successful",
         "signupError": "Sign up failed",
         "consent": "I have read the",
-        "agreement": "agreement"
+        "agreement": "agreement",
+        "agreementError": "Please read and accept the agreement",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "first_nameError": "Please input your first name",
+        "last_nameError": "Please input your last name"
     },
     
     "map": {

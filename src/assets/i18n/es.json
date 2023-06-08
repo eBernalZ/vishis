@@ -42,7 +42,12 @@
         "signupSuccess": "Cuenta creada exitosamente",
         "signupError": "Error al crear la cuenta",
         "consent": "He leído y acepto los",
-        "agreement": "términos y condiciones"
+        "agreement": "términos y condiciones",
+        "agreementError": "Debes aceptar los términos y condiciones",
+        "first_name": "Nombre(s)",
+        "last_name": "Apellidos",
+        "first_nameError": "Ingresa tu(s) nombre(s)",
+        "last_nameError": "Ingresa tus apellidos"
     },
     
     "map": {
