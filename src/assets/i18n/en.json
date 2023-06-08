@@ -12,6 +12,7 @@
         "save": "Save",
         "coming_soon": "More settings coming soon"
     },
+
     "auth": {
         "title": "Authentication",
         "login": "Log in",
@@ -26,6 +27,7 @@
         "or": "Or",
         "loginsuccess": "Login successful"
     },
+
     "signup": {
         "email": "Email",
         "emailError": "Please input a valid email",
@@ -42,6 +44,7 @@
         "consent": "I have read the",
         "agreement": "agreement"
     },
+    
     "map": {
         "search": "Search",
         "clear": "Clear",

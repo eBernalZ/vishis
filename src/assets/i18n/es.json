@@ -3,6 +3,7 @@
         "en": "Inglés",
         "es": "Español"
     },
+
     "settings": {
         "title": "Configuración",
         "language": "Idioma",
@@ -11,6 +12,7 @@
         "save": "Guardar",
         "coming_soon": "Más opciones próximamente"
     },
+
     "auth": {
         "title": "Autenticación",
         "login": "Iniciar sesión",
@@ -25,6 +27,7 @@
         "or": "O",
         "loginsuccess": "Has iniciado sesión correctamente"
     },
+
     "signup": {
         "email": "Correo electrónico",
         "emailError": "Ingresa un correo electrónico válido",
@@ -41,6 +44,7 @@
         "consent": "He leído y acepto los",
         "agreement": "términos y condiciones"
     },
+    
     "map": {
         "search": "Buscar",
         "clear": "Limpiar",
