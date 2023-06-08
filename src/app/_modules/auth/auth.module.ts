@@ -11,9 +11,13 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 // CUSTOM MODULES
 import { AuthRoutingModule } from './auth-routing.module';
+
+// I18N MODULES
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { AuthRoutingModule } from './auth-routing.module';
     NzFormModule,
     NzInputModule,
     NzButtonModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    NzSelectModule,
+    TranslocoModule
   ],
   exports: [
     SignupComponent,

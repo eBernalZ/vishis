@@ -22,7 +22,24 @@
         "passwordError": "Ingresa tu contraseña",
         "rememberMe": "Recordarme",
         "forgotPassword": "¿Olvidaste tu contraseña?",
-        "or": "O"
+        "or": "O",
+        "loginsuccess": "Has iniciado sesión correctamente"
+    },
+    "signup": {
+        "email": "Correo electrónico",
+        "emailError": "Ingresa un correo electrónico válido",
+        "username": "Nombre de usuario",
+        "usernameError": "Ingresa tu nombre de usuario",
+        "password": "Contraseña",
+        "passwordError": "Ingresa tu contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "confirmPasswordError": "Confirma tu contraseña",
+        "passwordMatchError": "Las contraseñas no coinciden",
+        "signup": "Crear cuenta",
+        "signupSuccess": "Cuenta creada exitosamente",
+        "signupError": "Error al crear la cuenta",
+        "consent": "He leído y acepto los",
+        "agreement": "términos y condiciones"
     },
     "map": {
         "search": "Buscar",
@@ -35,6 +52,7 @@
         "ongoing": "En curso",
         "years": "Año(s)",
         "invalidRange": "Rango de años inválido",
+        "validating": "Validating",
         "countries": {
             "AF": "Afganistán",
             "AL": "Albania",

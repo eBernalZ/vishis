@@ -1,4 +1,4 @@
-<div #map></div>
+<!-- <div #map></div> -->
 <form class="search-form" nz-form [nzLayout]="'vertical'" [formGroup]="searchParams" (ngSubmit)="search()"
   #searchBar>
   <nz-form-item>
@@ -11,7 +11,7 @@
           </nz-form-control>
         </div>
         <div nz-col nzSpan="12">
-          <nz-form-control nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="yearToErrorTpl">
+          <nz-form-control nzHasFeedback nzValidatingTip="{{'map.validating' | transloco}}" [nzErrorTip]="yearToErrorTpl">
             <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923" />
             <ng-template #yearToErrorTpl let-control>
               <ng-container *ngIf="control.hasError('confirm')">{{'map.invalidRange' | transloco}}</ng-container>
@@ -114,9 +114,10 @@
         </nz-form-item>
         <div nz-row class="login-form-margin">
           <div nz-col [nzSpan]="12">
-            <label nz-checkbox formControlName="remember">
+            <!-- TODO: Make a remember me system -->
+            <!-- <label nz-checkbox formControlName="remember">
               <span>{{'auth.rememberMe' | transloco}}</span>
-            </label>
+            </label> -->
           </div>
           <div nz-col [nzSpan]="12">
             <a class="login-form-forgot">{{'auth.forgotPassword' | transloco}}</a>

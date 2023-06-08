@@ -23,7 +23,24 @@
         "passwordError": "Please input your password",
         "rememberMe": "Remember me",
         "forgotPassword": "Forgot password?",
-        "or": "Or"
+        "or": "Or",
+        "loginsuccess": "Login successful"
+    },
+    "signup": {
+        "email": "Email",
+        "emailError": "Please input a valid email",
+        "username": "Username",
+        "usernameError": "Please input your username",
+        "password": "Password",
+        "passwordError": "Please input your password",
+        "confirmPassword": "Confirm password",
+        "confirmPasswordError": "Please confirm your password",
+        "passwordMatchError": "Passwords do not match",
+        "signup": "Sign up",
+        "signupSuccess": "Sign up successful",
+        "signupError": "Sign up failed",
+        "consent": "I have read the",
+        "agreement": "agreement"
     },
     "map": {
         "search": "Search",
@@ -36,6 +53,7 @@
         "ongoing": "Ongoing",
         "years": "Year range",
         "invalidRange": "Invalid year range",
+        "validating": "Validating",
         "countries": {
             "AF": "Afghanistan",
             "AL": "Albania",

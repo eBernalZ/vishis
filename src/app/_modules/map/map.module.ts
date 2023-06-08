@@ -1,7 +1,6 @@
 // ANGULAR MODULES
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MapComponent } from './map.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // I18N MODULES
@@ -18,10 +17,14 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 // CUSTOM MODULES
 import { MapRoutingModule } from './map-routing.module';
 import { AuthModule } from '../auth/auth.module';
+
+// COMPONENTS
+import { MapComponent } from './map.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,7 @@ import { AuthModule } from '../auth/auth.module';
     NzDividerModule,
     NzDrawerModule,
     NzCheckboxModule,
+    NzMessageModule,
     AuthModule
   ],
   exports: [

@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // CUSTOM MODULES
-import { MapModule } from './_modules/map/map.module';
 import { TranslocoRootModule } from './transloco-root.module';
 
 registerLocaleData(en);
@@ -25,7 +24,6 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MapModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

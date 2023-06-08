@@ -1,8 +1,9 @@
 // Angular imports
 import { ViewChild, Component, OnInit, ElementRef, AfterViewInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { Observable, Observer } from 'rxjs';
-import { ValidationErrors } from '@angular/forms';
+
+// Message imports
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 // Globe imports
 import Map from "@arcgis/core/Map";
@@ -37,7 +38,9 @@ export class MapComponent implements OnInit, AfterViewInit {
   
   constructor(
     private fb: UntypedFormBuilder,
-    public translocoService: TranslocoService) {
+    public translocoService: TranslocoService,
+    private message: NzMessageService
+    ) {
     this.searchParams = this.fb.group({
       yearFrom: ['', [Validators.required],],
       yearTo: [{value:'', disabled: false}, [this.yearRangeValidator]],
@@ -59,10 +62,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initializeMap().then(() => {
+    // this.initializeMap().then(() => {
       // The map has been initialized
       // console.log('The map is ready.');
-    });
+    // });
   }
 
   initializeMap(): Promise<any> {
@@ -144,6 +147,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   closeAuth(): void {
     this.showAuth = false;
+    this.loginForm.reset(); 
   }
 
   openDrawer(): void {
@@ -155,12 +159,13 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   login(): void {
+    this.loading = true;
     if (this.loginForm.valid) {
       console.log('submit', this.loginForm.value);
-      this.loading = true;
       setTimeout(() => {
         this.loading = false;
         this.closeAuth();
+        this.message.success(this.translocoService.translate('auth.loginsuccess'));
       }, 2000);
     } else {
       Object.values(this.loginForm.controls).forEach(control => {
