@@ -14,7 +14,6 @@
     },
 
     "auth": {
-        "title": "Authentication",
         "login": "Log in",
         "logout": "Log out",
         "signup": "sign up",
@@ -25,7 +24,8 @@
         "rememberMe": "Remember me",
         "forgotPassword": "Forgot password?",
         "or": "Or",
-        "loginsuccess": "Login successful"
+        "loginsuccess": "Login successful",
+        "loginerror": "Login failed"
     },
 
     "signup": {
@@ -47,7 +47,9 @@
         "first_name": "First name",
         "last_name": "Last name",
         "first_nameError": "Please input your first name",
-        "last_nameError": "Please input your last name"
+        "last_nameError": "Please input your last name",
+        "or": "Or",
+        "login": "log in"
     },
     
     "map": {

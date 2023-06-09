@@ -18,6 +18,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 // CUSTOM MODULES
 import { MapRoutingModule } from './map-routing.module';
@@ -47,6 +48,7 @@ import { MapComponent } from './map.component';
     NzDrawerModule,
     NzCheckboxModule,
     NzMessageModule,
+    NzTypographyModule,
     AuthModule
   ],
   exports: [

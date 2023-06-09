@@ -25,7 +25,8 @@
         "rememberMe": "Recordarme",
         "forgotPassword": "¿Olvidaste tu contraseña?",
         "or": "O",
-        "loginsuccess": "Has iniciado sesión correctamente"
+        "loginsuccess": "Has iniciado sesión correctamente",
+        "loginerror": "Error al iniciar sesión"
     },
 
     "signup": {
@@ -47,7 +48,9 @@
         "first_name": "Nombre(s)",
         "last_name": "Apellidos",
         "first_nameError": "Ingresa tu(s) nombre(s)",
-        "last_nameError": "Ingresa tus apellidos"
+        "last_nameError": "Ingresa tus apellidos",
+        "or": "O",
+        "login": "inicia sesión"
     },
     
     "map": {

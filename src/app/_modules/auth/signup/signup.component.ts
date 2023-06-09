@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.translocoService.setActiveLang('es');
   }
 
   submitForm(): void {

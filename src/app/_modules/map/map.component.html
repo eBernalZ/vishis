@@ -1,4 +1,5 @@
-<!-- <div #map></div> -->
+<div #map></div>
+
 <form class="search-form" nz-form [nzLayout]="'vertical'" [formGroup]="searchParams" (ngSubmit)="search()"
   #searchBar>
   <nz-form-item>
@@ -60,7 +61,7 @@
           <span nz-icon nzType="delete"></span>
           {{'map.clear' | transloco}}
         </button>
-        <button nz-button nzType="primary" disabled="{{searchDisable}}">
+        <button nz-button nzType="primary" disabled="{{searchDisable}}" [nzLoading]="searchloading">
           <span nz-icon nzType="search"></span>
           {{'map.search' | transloco}}
         </button>
@@ -79,7 +80,7 @@
   <nz-modal [(nzVisible)]="showSettings" nzTitle="{{'settings.title' | transloco}}" (nzOnCancel)="closeSettings()"
     (nzOnOk)="saveSettings()">
     <div *nzModalContent class="settings">
-      <h3>{{'settings.language' | transloco}}</h3>
+      <h4 nz-typography>{{'settings.language' | transloco}}</h4>
       <p>{{'settings.languageDescription' | transloco}}</p>
       <nz-radio-group [(ngModel)]="locale" nzButtonStyle="solid">
         <label nz-radio-button nzValue="en">{{'languages.en' | transloco}}</label>
@@ -93,10 +94,9 @@
     </div>
   </nz-modal>
 
-  <nz-modal [(nzVisible)]="showAuth" nzTitle="{{'auth.title' | transloco}}" (nzOnCancel)="closeAuth()"
+  <nz-modal [(nzVisible)]="showAuth" nzTitle="{{'auth.login' | transloco}}" (nzOnCancel)="closeAuth()"
     (nzOnOk)="closeAuth()">
     <div *nzModalContent class="auth">
-      <h3>{{'auth.login' | transloco}}</h3>
       <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
         <nz-form-item>
           <nz-form-control nzErrorTip="{{'auth.usernameError' | transloco}}">
@@ -123,7 +123,7 @@
             <a class="login-form-forgot">{{'auth.forgotPassword' | transloco}}</a>
           </div>
         </div>
-        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="loading">{{'auth.login' | transloco}}</button>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="loginloading">{{'auth.login' | transloco}}</button>
         {{'auth.or' | transloco}}
         <a routerLink="/auth/signup">{{'auth.signup' | transloco}}</a>
       </form>

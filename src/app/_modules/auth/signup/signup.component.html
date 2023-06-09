@@ -1,5 +1,6 @@
 <div class="container">
     <div class="form-background">
+        <h1 nz-typography>{{'signup.signup' | transloco}}</h1>
         <form nz-form [nzLayout]="'vertical'" [formGroup]="signup" (ngSubmit)="submitForm()">
             <nz-form-item>
                 <nz-input-group [nzSize]="'default'">
@@ -71,6 +72,8 @@
                         transloco}}</button>
                 </nz-form-control>
             </nz-form-item>
+            {{'signup.or' | transloco}}
+            <a routerLink="/auth/login">{{'signup.login' | transloco}}</a>
         </form>
     </div>
 </div>
