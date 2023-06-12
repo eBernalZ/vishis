@@ -58,9 +58,11 @@
         "place": "Place",
         "parties": "Parties involved",
         "partiesTemplate": "and {{parties}} more selected",
-        "status": "Status",
-        "finished": "Finished",
-        "ongoing": "Ongoing",
+        "status": {
+            "status": "Status",
+            "0": "Ongoing",
+            "1": "Finished"
+        },
         "years": "Year range",
         "invalidRange": "Invalid year range",
         "validating": "Validating",

@@ -30,6 +30,7 @@ nz-button-group {
     width: 100%;
     margin: 0px 0px 0px 0px;
     padding: 5px 10px 5px 10px;
+    background-color: white;
 }
 
 .settings {

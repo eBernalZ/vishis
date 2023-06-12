@@ -45,10 +45,10 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label>{{'map.status' | transloco}}</nz-form-label>
+    <nz-form-label>{{'map.status.status' | transloco}}</nz-form-label>
     <nz-form-control>
       <nz-select nzShowSearch formControlName="status" nzAllowClear>
-        <nz-option *ngFor="let status of statuses" nzLabel="{{'map.' + status | transloco}}"
+        <nz-option *ngFor="let status of statuses" nzLabel="{{'map.status.' + status | transloco}}"
           [nzValue]="status"></nz-option>
       </nz-select>
     </nz-form-control>

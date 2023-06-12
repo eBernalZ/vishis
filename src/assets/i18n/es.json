@@ -59,7 +59,11 @@
         "place": "Lugar",
         "parties": "Países involucrados",
         "partiesTemplate": "y {{parties}} más seleccionados",
-        "status": "Estatus",
+        "status": {
+            "status": "Estatus",
+            "0": "En curso",
+            "1": "Finalizado"
+        },
         "finished": "Finalizado",
         "ongoing": "En curso",
         "years": "Año(s)",
