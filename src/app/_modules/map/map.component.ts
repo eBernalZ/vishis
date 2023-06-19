@@ -5,18 +5,9 @@ import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } 
 // Message imports
 import { NzMessageService } from 'ng-zorro-antd/message';
 
-// Globe imports
-import Map from "@arcgis/core/Map";
-import SceneView from "@arcgis/core/views/SceneView";
-import esriConfig from "@arcgis/core/config";
-import GeoJSONLayer from "@arcgis/core/layers/GeoJSONLayer";
-
-import { SimpleRenderer } from "@arcgis/core/renderers";
-import { SimpleMarkerSymbol } from '@arcgis/core/symbols';
-import { environment } from 'src/environments/environment';
-
-// Testing mapbox
+// Mapbox Imports
 import * as mapboxgl from 'mapbox-gl';
+import { environment } from 'src/environments/environment';
 
 // i18n imports
 import { TranslocoService } from '@ngneat/transloco';
@@ -58,11 +49,11 @@ export class MapComponent implements OnInit, AfterViewInit {
     private message: NzMessageService
   ) {
     this.searchParams = this.fb.group({
-      yearFrom: ['', [Validators.required],],
-      yearTo: [{ value: '', disabled: false }, [this.yearRangeValidator]],
-      country: ['', [Validators.required]],
-      parties: [[], [Validators.required]],
-      status: ['', [Validators.required]],
+      yearFrom: ['', [],],
+      yearTo: [{ value: '', disabled: false}, [this.yearRangeValidator]],
+      country: ['', []],
+      // parties: [[], [Validators.required]],
+      status: ['', []],
     });
 
     this.loginForm = this.fb.group({
@@ -93,7 +84,7 @@ export class MapComponent implements OnInit, AfterViewInit {
         accessToken: environment.MAPBOX_API_KEY,
         center: [this.lng, this.lat]});
     // Add map controls
-    this.map2.addControl(new mapboxgl.NavigationControl(), "top-right");
+    this.map2.addControl(new mapboxgl.NavigationControl(), "top-left");
     this.map2.on('style.load', () => {
       this.map2.setFog({
         'horizon-blend': 0.01,
@@ -102,78 +93,25 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // this.initializeMap().then(() => {
-      // The map has been initialized
-      // console.log('The map is ready.');
-    // });
   }
 
-  // ARCGIS MAP VARIABLES
-  markerSymbol = new SimpleMarkerSymbol({
-    color: [226, 119, 40], // Orange
-    outline: {
-      color: [255, 255, 255], // White
-      width: 1
-    }
-  })
-
-  renderer = new SimpleRenderer({
-    symbol: this.markerSymbol
-  });
-  
-  geojsonlayer = new GeoJSONLayer({
-    url: "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
-    copyright: "USGS Earthquakes",
-    renderer: this.renderer,
-    popupTemplate: {
-      title: "Earthquake Info",
-      content: "Magnitude {mag} {type} hit {place} on {time}",
-      fieldInfos: [
-        {
-          fieldName: "time",
-          format: {
-            dateFormat: "short-date-short-time"
-          }
-        }
-      ],
-    },
-  });
-
-  initializeMap(): Promise<any> {
-    const container = this.map.nativeElement;
-    // esriConfig.apiKey = environment.API_KEY;
-    const map = new Map({
-      basemap: "arcgis-topographic", //Basemap layer service
-      ground: "world-elevation", //Elevation service
-      layers: [this.geojsonlayer]
-    });
-
-    const view = new SceneView({
-      container,
-      map: map,
-      camera: {
-        heading: 0,
-        tilt: 0, //Perspective in degrees
-        position: {
-          x: 0,
-          y: 0,
-          z: 25000000 //Height in meters
-        }
-      }
-    });
-
-    // Add Search widget
-    view.ui.add(this.searchBar.nativeElement, "bottom-right");
-    view.ui.add(this.settings.nativeElement, "top-right");
-    view.ui.add(this.create.nativeElement, "bottom-left");
-    this.view = view;
-
-    return this.view.when();
-  }
 
   search() {
-    console.log(this.searchParams.value);
     this.searchloading = true;
+    if (this.searchParams.valid) {
+      console.log('submit', this.searchParams.value);
+      setTimeout(() => {
+        this.searchloading = false;
+      }, 2000);
+    } else {
+      Object.values(this.searchParams.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({ onlySelf: true });
+          this.searchloading = false;
+        }
+      });
+    }
   }
 
   yearRangeValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
