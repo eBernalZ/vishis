@@ -31,7 +31,7 @@ nz-form-label {
     text-align: center;
 }
 
-label {
+nz-form-item > label {
     color: #fff !important;
 }
 
