@@ -141,7 +141,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   initializeMap(): Promise<any> {
     const container = this.map.nativeElement;
-    esriConfig.apiKey = environment.API_KEY;
+    // esriConfig.apiKey = environment.API_KEY;
     const map = new Map({
       basemap: "arcgis-topographic", //Basemap layer service
       ground: "world-elevation", //Elevation service
