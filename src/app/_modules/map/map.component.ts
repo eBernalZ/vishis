@@ -93,9 +93,11 @@ export class MapComponent implements OnInit, AfterViewInit {
         accessToken: environment.MAPBOX_API_KEY,
         center: [this.lng, this.lat]});
     // Add map controls
-    this.map2.addControl(new mapboxgl.NavigationControl());
+    this.map2.addControl(new mapboxgl.NavigationControl(), "top-right");
     this.map2.on('style.load', () => {
-      this.map2.setFog({});
+      this.map2.setFog({
+        'horizon-blend': 0.01,
+      });
     });
   }
 
