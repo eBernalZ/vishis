@@ -53,6 +53,13 @@
         "login": "inicia sesión"
     },
     
+    "events": {
+        "create": "Crear evento",
+        "name": "Nombre del evento",
+        "nameError": "Ingresa el nombre del evento",
+        "description": "Descripción"
+    },
+
     "map": {
         "search": "Buscar",
         "clear": "Limpiar",

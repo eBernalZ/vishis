@@ -1,7 +1,6 @@
-<div #map></div>
+<!-- <div #map></div>
 
-<form class="search-form" nz-form [nzLayout]="'vertical'" [formGroup]="searchParams" (ngSubmit)="search()"
-  #searchBar>
+<form class="search-form" nz-form [nzLayout]="'vertical'" [formGroup]="searchParams" (ngSubmit)="search()" #searchBar>
   <nz-form-item>
     <nz-form-label>{{'map.years' | transloco}}</nz-form-label>
     <nz-input-group [nzSize]="'default'">
@@ -12,7 +11,8 @@
           </nz-form-control>
         </div>
         <div nz-col nzSpan="12">
-          <nz-form-control nzHasFeedback nzValidatingTip="{{'map.validating' | transloco}}" [nzErrorTip]="yearToErrorTpl">
+          <nz-form-control nzHasFeedback nzValidatingTip="{{'map.validating' | transloco}}"
+            [nzErrorTip]="yearToErrorTpl">
             <input nz-input formControlName="yearTo" id="yearTo" placeholder="1923" />
             <ng-template #yearToErrorTpl let-control>
               <ng-container *ngIf="control.hasError('confirm')">{{'map.invalidRange' | transloco}}</ng-container>
@@ -86,7 +86,6 @@
         <label nz-radio-button nzValue="en">{{'languages.en' | transloco}}</label>
         <label nz-radio-button nzValue="es">{{'languages.es' | transloco}}</label>
       </nz-radio-group>
-      <!-- <nz-divider nzText="{{'settings.coming_soon' | transloco}}"></nz-divider> -->
     </div>
     <div *nzModalFooter>
       <button nz-button nzType="default" (click)="closeSettings()">{{'settings.cancel' | transloco}}</button>
@@ -101,29 +100,31 @@
         <nz-form-item>
           <nz-form-control nzErrorTip="{{'auth.usernameError' | transloco}}">
             <nz-input-group nzPrefixIcon="user">
-              <input type="text" nz-input formControlName="username" placeholder="{{'auth.usernameEmail' | transloco}}" />
+              <input type="text" nz-input formControlName="username"
+                placeholder="{{'auth.usernameEmail' | transloco}}" />
             </nz-input-group>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
           <nz-form-control nzErrorTip="{{'auth.passwordError' | transloco}}">
             <nz-input-group nzPrefixIcon="lock">
-              <input type="password" nz-input formControlName="password" placeholder="{{'auth.password' | transloco}}" />
+              <input type="password" nz-input formControlName="password"
+                placeholder="{{'auth.password' | transloco}}" />
             </nz-input-group>
           </nz-form-control>
         </nz-form-item>
         <div nz-row class="login-form-margin">
           <div nz-col [nzSpan]="12">
-            <!-- TODO: Make a remember me system -->
-            <!-- <label nz-checkbox formControlName="remember">
+            <label nz-checkbox formControlName="remember">
               <span>{{'auth.rememberMe' | transloco}}</span>
-            </label> -->
+            </label>
           </div>
           <div nz-col [nzSpan]="12">
             <a class="login-form-forgot">{{'auth.forgotPassword' | transloco}}</a>
           </div>
         </div>
-        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="loginloading">{{'auth.login' | transloco}}</button>
+        <button nz-button class="full-width-button login-form-margin" [nzType]="'primary'"
+          [nzLoading]="loginloading">{{'auth.login' | transloco}}</button>
         {{'auth.or' | transloco}}
         <a routerLink="/auth/signup">{{'auth.signup' | transloco}}</a>
       </form>
@@ -133,11 +134,30 @@
   </nz-modal>
 </div>
 
-<nz-drawer [nzClosable]="false" [nzVisible]="showDrawer" nzPlacement="right" nzTitle="Basic Drawer"
+<div #create>
+  <button nz-button [nzSize]="'large'" nzType="primary" (click)="openDrawer()"><span nz-icon
+      nzType="plus"></span></button>
+</div>
+<nz-drawer [nzClosable]="false" [nzVisible]="showDrawer" nzPlacement="right" nzTitle="{{'events.create' | transloco}}"
   (nzOnClose)="closeDrawer()">
   <ng-container *nzDrawerContent>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
+    <form nz-form [formGroup]="eventForm" (ngSubmit)="createEvent()" [nzLayout]="'vertical'">
+      <nz-form-item>
+        <nz-form-label>{{'events.name' | transloco}}</nz-form-label>
+        <nz-form-control nzErrorTip="Enter a name for the event">
+          <input nz-input formControlName="name" id="name"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>{{'events.description' | transloco}}</nz-form-label>
+        <nz-form-control nzErrorTip="Enter a description for the event">
+            <textarea nz-input formControlName="description"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+
+      <button class="full-width-button" nz-button nzType="primary" [nzLoading]="eventloading">{{'events.create' | transloco}}</button>
+    </form>
   </ng-container>
-</nz-drawer>
+</nz-drawer> -->
+
+<div class="map" id="map" class="match-parent"></div>

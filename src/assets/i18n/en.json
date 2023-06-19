@@ -52,6 +52,13 @@
         "login": "log in"
     },
     
+    "events": {
+        "create": "Create event",
+        "name": "Event name",
+        "nameError": "Please input the event name",
+        "description": "Description"
+    },
+
     "map": {
         "search": "Search",
         "clear": "Clear",
