@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="form-background">
+        <h1 nz-typography>{{'signup.signup' | transloco}}</h1>
+        <form nz-form [nzLayout]="'vertical'" [formGroup]="signup" (ngSubmit)="submitForm()">
+            <nz-form-item>
+                <nz-input-group [nzSize]="'default'">
+                    <div nz-row [nzGutter]="0">
+                        <div nz-col nzSpan="12">
+                            <nz-form-label nzRequired nzFor="first_name">{{'signup.first_name' |
+                                transloco}}</nz-form-label>
+                            <nz-form-control nzErrorTip="{{'signup.first_nameError' | transloco}}">
+                                <input nz-input formControlName="first_name" id="first_name" />
+                            </nz-form-control>
+                        </div>
+                        <div nz-col nzSpan="12">
+                            <nz-form-label nzRequired nzFor="last_name">{{'signup.last_name' |
+                                transloco}}</nz-form-label>
+                            <nz-form-control nzErrorTip="{{'signup.last_nameError' | transloco}}">
+                                <input nz-input formControlName="last_name" id="last_name" />
+                            </nz-form-control>
+                        </div>
+                    </div>
+                </nz-input-group>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzRequired nzFor="email">{{'signup.email' | transloco }}</nz-form-label>
+                <nz-form-control nzErrorTip="{{'signup.emailError' | transloco}}">
+                    <input nz-input formControlName="email" id="email" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="username" nzRequired>
+                    <span>{{'signup.username' | transloco}}</span>
+                </nz-form-label>
+                <nz-form-control nzErrorTip="{{'signup.usernameError' | transloco}}">
+                    <input nz-input id="username" formControlName="username" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="password" nzRequired>{{'signup.password' | transloco}}</nz-form-label>
+                <nz-form-control nzErrorTip="{{'signup.passwordError' | transloco}}">
+                    <input nz-input type="password" id="password" formControlName="password"
+                        (ngModelChange)="updateConfirmValidator()" />
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-label nzFor="password_confirmation" nzRequired>{{'signup.confirmPassword' | transloco}}</nz-form-label>
+                <nz-form-control [nzErrorTip]="errorTpl">
+                    <input nz-input type="password" formControlName="password_confirmation" id="password_confirmation" />
+                    <ng-template #errorTpl let-control>
+                        <ng-container *ngIf="control.hasError('required')">{{'signup.confirmPasswordError' |
+                            transloco}}</ng-container>
+                        <ng-container *ngIf="control.hasError('confirm')">
+                            {{'signup.passwordMatchError' | transloco}}
+                        </ng-container>
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row class="register-area">
+                <nz-form-control nzErrorTip="{{'signup.agreementError' | transloco}}">
+                    <label nz-checkbox formControlName="agree">
+                        <span>
+                            {{'signup.consent' | transloco}}
+                            <a routerLink="/legal/terms">{{'signup.agreement' | transloco}}</a>
+                        </span>
+                    </label>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row class="register-area">
+                <nz-form-control>
+                    <button nz-button nzType="primary" [disabled]="!signup.get('agree')?.value">{{'signup.signup' |
+                        transloco}}</button>
+                </nz-form-control>
+            </nz-form-item>
+            {{'signup.or' | transloco}}
+            <a routerLink="/auth/login">{{'signup.login' | transloco}}</a>
+        </form>
+    </div>
+</div>

@@ -3,6 +3,7 @@
         "en": "Inglés",
         "es": "Español"
     },
+
     "settings": {
         "title": "Configuración",
         "language": "Idioma",
@@ -11,17 +12,70 @@
         "save": "Guardar",
         "coming_soon": "Más opciones próximamente"
     },
+
+    "auth": {
+        "title": "Autenticación",
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión",
+        "signup": "crear una cuenta nueva",
+        "usernameEmail": "Nombre de usuario o correo electrónico",
+        "password": "Contraseña",
+        "usernameError": "Ingresa tu nombre de usuario o correo electrónico",
+        "passwordError": "Ingresa tu contraseña",
+        "rememberMe": "Recordarme",
+        "forgotPassword": "¿Olvidaste tu contraseña?",
+        "or": "O",
+        "loginsuccess": "Has iniciado sesión correctamente",
+        "loginerror": "Error al iniciar sesión"
+    },
+
+    "signup": {
+        "email": "Correo electrónico",
+        "emailError": "Ingresa un correo electrónico válido",
+        "username": "Nombre de usuario",
+        "usernameError": "Ingresa tu nombre de usuario",
+        "password": "Contraseña",
+        "passwordError": "Ingresa tu contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "confirmPasswordError": "Confirma tu contraseña",
+        "passwordMatchError": "Las contraseñas no coinciden",
+        "signup": "Crear cuenta",
+        "signupSuccess": "Cuenta creada exitosamente",
+        "signupError": "Error al crear la cuenta",
+        "consent": "He leído y acepto los",
+        "agreement": "términos y condiciones",
+        "agreementError": "Debes aceptar los términos y condiciones",
+        "first_name": "Nombre(s)",
+        "last_name": "Apellidos",
+        "first_nameError": "Ingresa tu(s) nombre(s)",
+        "last_nameError": "Ingresa tus apellidos",
+        "or": "O",
+        "login": "inicia sesión"
+    },
+    
+    "events": {
+        "create": "Crear evento",
+        "name": "Nombre del evento",
+        "nameError": "Ingresa el nombre del evento",
+        "description": "Descripción"
+    },
+
     "map": {
         "search": "Buscar",
         "clear": "Limpiar",
         "place": "Lugar",
         "parties": "Países involucrados",
         "partiesTemplate": "y {{parties}} más seleccionados",
-        "status": "Estatus",
+        "status": {
+            "status": "Estatus",
+            "0": "En curso",
+            "1": "Finalizado"
+        },
         "finished": "Finalizado",
         "ongoing": "En curso",
         "years": "Año(s)",
         "invalidRange": "Rango de años inválido",
+        "validating": "Validating",
         "countries": {
             "AF": "Afganistán",
             "AL": "Albania",

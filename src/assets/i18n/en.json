@@ -12,18 +12,67 @@
         "save": "Save",
         "coming_soon": "More settings coming soon"
     },
+
+    "auth": {
+        "login": "Log in",
+        "logout": "Log out",
+        "signup": "sign up",
+        "usernameEmail": "Username or email",
+        "password": "Password",
+        "usernameError": "Please input your username or email",
+        "passwordError": "Please input your password",
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot password?",
+        "or": "Or",
+        "loginsuccess": "Login successful",
+        "loginerror": "Login failed"
+    },
+
+    "signup": {
+        "email": "Email",
+        "emailError": "Please input a valid email",
+        "username": "Username",
+        "usernameError": "Please input your username",
+        "password": "Password",
+        "passwordError": "Please input your password",
+        "confirmPassword": "Confirm password",
+        "confirmPasswordError": "Please confirm your password",
+        "passwordMatchError": "Passwords do not match",
+        "signup": "Sign up",
+        "signupSuccess": "Sign up successful",
+        "signupError": "Sign up failed",
+        "consent": "I have read the",
+        "agreement": "agreement",
+        "agreementError": "Please read and accept the agreement",
+        "first_name": "First name",
+        "last_name": "Last name",
+        "first_nameError": "Please input your first name",
+        "last_nameError": "Please input your last name",
+        "or": "Or",
+        "login": "log in"
+    },
     
+    "events": {
+        "create": "Create event",
+        "name": "Event name",
+        "nameError": "Please input the event name",
+        "description": "Description"
+    },
+
     "map": {
         "search": "Search",
         "clear": "Clear",
         "place": "Place",
         "parties": "Parties involved",
         "partiesTemplate": "and {{parties}} more selected",
-        "status": "Status",
-        "finished": "Finished",
-        "ongoing": "Ongoing",
+        "status": {
+            "status": "Status",
+            "0": "Ongoing",
+            "1": "Finished"
+        },
         "years": "Year range",
         "invalidRange": "Invalid year range",
+        "validating": "Validating",
         "countries": {
             "AF": "Afghanistan",
             "AL": "Albania",
